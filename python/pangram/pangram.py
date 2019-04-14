@@ -2,14 +2,14 @@ ALPHABET = "abcdefghijklmnopqrstuvwxyz"
 
 
 def is_pangram(sentence):
-    letter_encountered = {letter: False for letter in ALPHABET}
+    letter_found = {letter: False for letter in ALPHABET}
     sentence = sentence.lower()
     for letter in sentence:
-        if letter in letter_encountered:
-            letter_encountered[letter] = True
+        if letter in letter_found:
+            letter_found[letter] = True
 
-    for encountered in letter_encountered.values():
-        if not encountered:
-            return encountered
+    for found in letter_found.values():
+        if not found:
+            return found
 
     return True
