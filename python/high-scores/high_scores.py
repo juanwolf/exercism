@@ -6,7 +6,7 @@ class HighScores(object):
         return self._get_best_scores(3)
 
     def latest(self):
-        return self.scores[len(self.scores) - 1]
+        return self.scores[-1]
 
     def personal_best(self):
         return self._get_best_scores(1)[0]
