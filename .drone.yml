@@ -7,3 +7,9 @@ steps:
   commands:
   - pip install pytest
   - pytest ./python/
+
+- name:  test rust
+  image: rust:1.34
+  commands:
+  - ./build-rust.sh
+
