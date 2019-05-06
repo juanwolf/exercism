@@ -10,7 +10,7 @@ pub fn reply(message: &str) -> &str {
         && !sanitized_message
             .to_uppercase()
             .eq(&sanitized_message.to_lowercase());
-    let is_question = sanitized_message.trim().ends_with("?");
+    let is_question = sanitized_message.ends_with("?");
 
     if is_question && is_uppercase {
         return YELL_QUESTION_ANSWER;
@@ -18,7 +18,7 @@ pub fn reply(message: &str) -> &str {
         return YELL_ANSWER;
     } else if is_question {
         return QUESTION_ANSWER;
-    } else if sanitized_message.trim().chars().count() == 0 {
+    } else if sanitized_message.chars().count() == 0 {
         return EMPTY_ANSWER;
     }
     return DEFAULT_ANSWER;
