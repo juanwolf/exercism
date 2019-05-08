@@ -1,14 +1,11 @@
 class Matrix(object):
-    ROW_DELIMETER = '\n'
-    COLUMN_DELIMETER = ' '
-
     def __init__(self, matrix_string):
         self.rows = []
 
-        for row in matrix_string.split(sep=self.ROW_DELIMETER):
+        for row in matrix_string.splitlines():
             formatted_column = [
                 int(column_item)
-                for column_item in row.split(sep=self.COLUMN_DELIMETER)
+                for column_item in row.split()
             ]
             self.rows.append(formatted_column)
 
