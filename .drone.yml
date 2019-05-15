@@ -13,3 +13,7 @@ steps:
   commands:
   - ./build-rust.sh
 
+- name: test golang
+  image: golang:1.12
+  commands:
+  - go test -v --bench --benchmem ./go/...
