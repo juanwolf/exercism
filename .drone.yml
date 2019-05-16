@@ -2,18 +2,24 @@ kind: pipeline
 name: default
 
 steps:
-- name: test python
-  image: python:3.7
-  commands:
-  - pip install pytest
-  - make python
+  - name: test python
+    image: python:3.7
+    commands:
+      - pip install pytest
+      - make python
+    depends_on:
+      - clone
 
-- name:  test rust
-  image: rust:1.34
-  commands:
-  - make rust
+  - name: test rust
+    image: rust:1.34
+    commands:
+      - make rust
+    depends_on:
+      - clone
 
-- name: test golang
-  image: golang:1.12
-  commands:
-  - make go
+  - name: test golang
+    image: golang:1.12
+    commands:
+      - make go
+    depends_on:
+      - clone
