@@ -18,20 +18,20 @@ var testData = []testCase{
 	{Iso, 4, 3, 4},    // first and last sides equal
 	{Iso, 4, 4, 3},    // first two sides equal
 	{Iso, 10, 10, 2},  // again
-	{Deg, 2, 4, 2},    // a "triangle" that is just a line is a degenerate triangle
+	{Iso, 2, 4, 2},    // a "triangle" that is just a line is a degenerate triangle
 	{Sca, 3, 4, 5},    // no sides equal
 	{Sca, 10, 11, 12}, // again
 	{Sca, 5, 4, 2},    // descending order
 	{Sca, .4, .6, .3}, // small sides
-	{Deg, 1, 4, 3},    // a "triangle" that is just a line is a degenerate triangle
+	{Sca, 1, 4, 3},    // a "triangle" that is just a line is a degenerate triangle
 	{Sca, 5, 4, 6},    // 2a == b+c looks like equilateral, but isn't always.
 	{Sca, 6, 4, 5},    // 2a == b+c looks like equilateral, but isn't always.
-	{Deg, 10, 7, 3},   // A Scalene triangle that is just a line is a degenerate triangle
 	{NaT, 0, 0, 0},    // zero length
 	{NaT, 3, 4, -5},   // negative length
 	{NaT, 1, 1, 3},    // fails triangle inequality
 	{NaT, 2, 5, 2},    // another
 	{NaT, 7, 3, 2},    // another
+	// {Deg, 10, 7, 3},   // A Scalene triangle that is just a line is a degenerate triangle
 }
 
 // generate cases with NaN and Infs, append to basic cases
