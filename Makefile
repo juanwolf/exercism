@@ -12,3 +12,7 @@ rust:
 .PHONY: python
 python:
 	pytest ./python/
+
+.PHONY: elisp
+elisp:
+	cd elisp && ./run-tests.sh

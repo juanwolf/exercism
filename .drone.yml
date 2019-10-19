@@ -23,3 +23,10 @@ steps:
       - make go
     depends_on:
       - clone
+
+  - name: test elisp
+    image: flycheck/emacs-cask:26.3
+    commands:
+      - make elisp
+    depends_on:
+      - clone
