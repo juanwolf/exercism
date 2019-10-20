@@ -12,8 +12,7 @@ type Sounds map[int]string
 // Factors returns the list of factors ascending sorted
 func (s Sounds) Factors() []int {
 	keys := []int{}
-
-	for key, _ := range s {
+	for key := range s {
 		keys = append(keys, key)
 	}
 	sort.Ints(keys)
