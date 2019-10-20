@@ -12,7 +12,7 @@ rust:
 
 .PHONY: python
 python:
-	black --check --diff ./python/
+	black --check --diff --exclude=".*_test.py" ./python/
 	pytest ./python/
 
 .PHONY: elisp
