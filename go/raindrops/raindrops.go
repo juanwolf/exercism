@@ -3,27 +3,28 @@ package raindrops
 
 import (
 	"fmt"
-	"sort"
 )
 
-// Sounds represents the list of sounds where the key is the factor of when the sound should be produced
-type Sounds map[int]string
-
-// Factors returns the list of factors ascending sorted
-func (s Sounds) Factors() []int {
-	keys := []int{}
-	for key := range s {
-		keys = append(keys, key)
-	}
-	sort.Ints(keys)
-	return keys
+// Sound represents a sound and the factor associated to it.
+type Sound struct {
+	Factor int
+	Sound  string
 }
 
-// DefaultSounds represents the only Sounds that needs to be interpreted by the Convert function for this exercise.
-var DefaultSounds = Sounds{
-	3: "Pling",
-	5: "Plang",
-	7: "Plong",
+// SoundList is the list of Sound supported in this exercise.
+var SoundList = []Sound{
+	Sound{
+		Factor: 3,
+		Sound:  "Pling",
+	},
+	Sound{
+		Factor: 5,
+		Sound:  "Plang",
+	},
+	Sound{
+		Factor: 7,
+		Sound:  "Plong",
+	},
 }
 
 /*
@@ -37,9 +38,9 @@ or returns the number's digit if none of the above.
 func Convert(number int) string {
 	result := ""
 
-	for _, factor := range DefaultSounds.Factors() {
-		if number%factor == 0 {
-			result += DefaultSounds[factor]
+	for _, sound := range SoundList {
+		if number%sound.Factor == 0 {
+			result += sound.Sound
 		}
 	}
 
