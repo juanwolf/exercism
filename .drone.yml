@@ -2,10 +2,11 @@ kind: pipeline
 name: default
 
 steps:
+
   - name: test python
     image: python:3.7
     commands:
-      - pip install pytest
+      - pip install pytest black
       - make python
     depends_on:
       - clone
@@ -20,6 +21,7 @@ steps:
   - name: test golang
     image: golang:1.12
     commands:
+      - curl -sfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh| sh -s -- -b $(go env GOPATH)/bin v1.21.0
       - make go
     depends_on:
       - clone
