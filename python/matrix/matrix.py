@@ -6,6 +6,7 @@ class Matrix(object):
     :ivar rows: Contains the rows of the matrix
     :vartype rows: list(list(int))
     """
+
     def __init__(self, matrix_string):
         self.rows = [
             [int(column_item) for column_item in row.split()]
@@ -24,4 +25,4 @@ class Matrix(object):
         Returns the column for a specific index.
         :param index: index of the column
         """
-        return  [row[index - 1] for row in self.rows]
+        return [row[index - 1] for row in self.rows]
