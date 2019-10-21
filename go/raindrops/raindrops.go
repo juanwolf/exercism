@@ -2,7 +2,7 @@
 package raindrops
 
 import (
-	"fmt"
+	"strconv"
 )
 
 // Sound represents a sound and the factor associated to it.
@@ -45,7 +45,7 @@ func Convert(number int) string {
 	}
 
 	if result == "" {
-		return fmt.Sprintf("%d", number)
+		return strconv.Itoa(number)
 	}
 
 	return result
