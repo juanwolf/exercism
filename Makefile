@@ -9,7 +9,7 @@ go:
 
 .PHONY: rust
 rust:
-	./build-rust.sh
+	cd rust && ./build.sh
 
 .PHONY: python
 python:
