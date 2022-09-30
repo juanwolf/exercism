@@ -1,8 +1,9 @@
 package lasagna
 
-const OvenTime = 40 // How many minutes the lasagna should be in the oven.
-
-const minutesToPrepareALayer = 2 // How many minutes it takes for a layer to be cooked
+const (
+	OvenTime               = 40 // How many minutes the lasagna should be in the oven.
+	minutesToPrepareALayer = 2  // How many minutes it takes for a layer to be cooked
+)
 
 // RemainingOvenTime returns the remaining minutes based on the `actual` minutes already in the oven.
 func RemainingOvenTime(actualMinutesInOven int) int {
