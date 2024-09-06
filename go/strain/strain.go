@@ -9,22 +9,25 @@ package strain
 
 type predicate[T any] func(T) bool
 
-func Discard[T any](in []T, fn predicate[T]) []T {
-	res := []T{}
+func filter[T any](in []T, fn predicate[T]) ([]T, []T) {
+	keep := []T{}
+	discard := []T{}
 	for _, v := range in {
-		if !fn(v) {
-			res = append(res, v)
+		if fn(v) {
+			keep = append(keep, v)
+		} else {
+			discard = append(discard, v)
 		}
 	}
-	return res
+	return keep, discard
+}
+
+func Discard[T any](in []T, fn predicate[T]) []T {
+	_, discard := filter(in, fn)
+	return discard
 }
 
 func Keep[T any](in []T, fn predicate[T]) []T {
-	res := []T{}
-	for _, v := range in {
-		if fn(v) {
-			res = append(res, v)
-		}
-	}
-	return res
+	keep, _ := filter(in, fn)
+	return keep
 }
